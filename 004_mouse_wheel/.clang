@@ -1,0 +1,10 @@
+-D_DEFAULT_SOURCE 
+-Wno-missing-braces
+-g
+-D_DEFAULT_SOURCE
+-I/usr/local/include
+-isystem.
+-isystem/home/phoenix/Dropbox/EcPx/Proyectos/src
+-isystem/home/phoenix/Dropbox/EcPx/Proyectos/release/include
+-isystem/home/phoenix/Dropbox/EcPx/Proyectos/src/external
+-DPLATFORM_DESKTOP

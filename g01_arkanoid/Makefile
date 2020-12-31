@@ -371,7 +371,7 @@ endif
 # Default target entry
 # NOTE: We call this Makefile target or Makefile.Android target
 all:
-	$(MAKE) $(MAKEFILE_PARAMS)
+	$(MAKE) $(MAKEFILE_PARAMS) run
 
 run:    ${PROJECT_NAME}
 				./${PROJECT_NAME}

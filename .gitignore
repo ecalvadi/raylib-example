@@ -2,3 +2,7 @@
 0*/main 
 0*/*.gif 
 0*/*.png
+g*/main.o
+g*/main
+g*/*.gif 
+g*/*.png

@@ -373,6 +373,9 @@ endif
 all:
 	$(MAKE) $(MAKEFILE_PARAMS)
 
+launch:
+	$(MAKE) $(MAKEFILE_PARAMS) run
+
 run:    ${PROJECT_NAME}
 				./${PROJECT_NAME}
 

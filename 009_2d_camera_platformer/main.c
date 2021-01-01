@@ -113,13 +113,13 @@ int main(void) {
         if( camera.zoom > 3.0f ) camera.zoom = 3.0f;
         else if( camera.zoom < 0.25f ) camera.zoom = 0.25f;
 
-        if( IsKeyPressed(KEY_R) )
+        if( IsKeyPressed(KEY_R) || IsGamepadButtonPressed(GAMEPAD_PLAYER1, GAMEPAD_BUTTON_LEFT_TRIGGER_1) )
         {
           camera.zoom = 1.0f;
           player.position = (Vector2){ 400, 280 };
         }
 
-        if( IsKeyPressed(KEY_C) ) cameraOption = ( cameraOption + 1 ) % cameraUpdatersLength;
+        if( IsKeyPressed(KEY_C) || IsGamepadButtonPressed(GAMEPAD_PLAYER1, GAMEPAD_BUTTON_RIGHT_TRIGGER_1) ) cameraOption = ( cameraOption + 1 ) % cameraUpdatersLength;
 
         //Call update camera function by its pointer
         cameraUpdaters[cameraOption](&camera, &player, envItems, envItemsLength, deltaTime, screenWidth, screenHeight);
@@ -163,9 +163,9 @@ void UpdatePlayer(Player *player, EnvItem *envItems, int envItemsLength, float d
 {
   //Player movement
   //TODO: ADD Joystick Support
-  if( IsKeyDown(KEY_LEFT) ) player->position.x -= PLAYER_HOR_SPD * delta;
-  if( IsKeyDown(KEY_RIGHT) ) player->position.x += PLAYER_HOR_SPD * delta;
-  if( IsKeyDown(KEY_SPACE) && player->canJump ) 
+  if( IsKeyDown(KEY_LEFT) || IsGamepadButtonDown(GAMEPAD_PLAYER1, GAMEPAD_BUTTON_LEFT_FACE_LEFT) ) player->position.x -= PLAYER_HOR_SPD * delta;
+  if( IsKeyDown(KEY_RIGHT) || IsGamepadButtonDown(GAMEPAD_PLAYER1, GAMEPAD_BUTTON_LEFT_FACE_RIGHT) ) player->position.x += PLAYER_HOR_SPD * delta;
+  if( (IsKeyDown(KEY_SPACE) || IsGamepadButtonDown(GAMEPAD_PLAYER1, GAMEPAD_BUTTON_RIGHT_FACE_DOWN)) && player->canJump )
   {
     player->speed = -PLAYER_JUMP_SPD;
     player->canJump = false;

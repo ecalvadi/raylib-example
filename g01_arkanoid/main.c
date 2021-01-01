@@ -132,14 +132,14 @@ void UpdateGame(void)
 {
   if( !gameOver )
   {
-    if( IsKeyPressed(KEY_P) ) pause = !pause;
+    if( IsKeyPressed(KEY_P) || IsGamepadButtonPressed(GAMEPAD_PLAYER1, GAMEPAD_BUTTON_MIDDLE_LEFT)) pause = !pause;
 
     if( !pause )
     {
       //Player movement logic
-      if( IsKeyDown(KEY_LEFT) ) player.position.x -= 5;
+      if( IsKeyDown(KEY_LEFT) || IsGamepadButtonDown(GAMEPAD_PLAYER1, GAMEPAD_BUTTON_LEFT_FACE_LEFT)) player.position.x -= 5;
       if( (player.position.x - player.size.x / 2) <= 0 ) player.position.x = player.size.x / 2;
-      if( IsKeyDown(KEY_RIGHT) ) player.position.x += 5;
+      if( IsKeyDown(KEY_RIGHT) || IsGamepadButtonDown(GAMEPAD_PLAYER1, GAMEPAD_BUTTON_LEFT_FACE_RIGHT) ) player.position.x += 5;
       if( (player.position.x + player.size.x / 2) >= screenWidth ) player.position.x = screenWidth - player.size.x / 2;
 
       //Ball launching logic
@@ -243,7 +243,7 @@ void UpdateGame(void)
   }
   else
   {
-    if( IsKeyPressed(KEY_ENTER) )
+    if( IsKeyPressed(KEY_ENTER) || IsGamepadButtonPressed(GAMEPAD_PLAYER1, GAMEPAD_BUTTON_MIDDLE_RIGHT) )
     {
       InitGame();
       gameOver = false;
@@ -292,7 +292,7 @@ void DrawGame(void)
 
       if( pause ) DrawText("GAME PAUSED", screenWidth / 2 - MeasureText("GAME PAUSED", 40) / 2, screenHeight / 2 - 40, 40, LIGHTGRAY);
     }
-    else DrawText("PRESS [ENTER] TO PLAY AGAIN", screenWidth / 2 - MeasureText("PRESS [ENTER] TO PLAY AGAIN", 20) / 2, screenHeight / 2 - 50, 20, LIGHTGRAY);
+    else DrawText("PRESS [ENTER] OR <START> TO PLAY AGAIN", screenWidth / 2 - MeasureText("PRESS [ENTER] OR <START> TO PLAY AGAIN", 20) / 2, screenHeight / 2 - 50, 20, LIGHTGRAY);
 
   EndDrawing();
 }

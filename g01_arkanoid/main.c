@@ -258,6 +258,7 @@ void DrawGame(void)
     
     ClearBackground(BLACK);
 
+
     if( !gameOver )
     {
       //Draw Player bar
@@ -293,6 +294,8 @@ void DrawGame(void)
       if( pause ) DrawText("GAME PAUSED", screenWidth / 2 - MeasureText("GAME PAUSED", 40) / 2, screenHeight / 2 - 40, 40, LIGHTGRAY);
     }
     else DrawText("PRESS [ENTER] OR <START> TO PLAY AGAIN", screenWidth / 2 - MeasureText("PRESS [ENTER] OR <START> TO PLAY AGAIN", 20) / 2, screenHeight / 2 - 50, 20, LIGHTGRAY);
+
+    DrawFPS(0, 0);
 
   EndDrawing();
 }

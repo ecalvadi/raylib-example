@@ -193,6 +193,8 @@ int main(void) {
             DrawTexture(texXboxPad, 240, 100, LIGHTGRAY);
         }
 
+	DrawFPS(0, 0);
+
         EndDrawing();
     }
 

@@ -75,6 +75,8 @@ int main(void) {
         DrawText("Move ball with mouse and click mouse button to change color", 10, 10, 20, DARKGRAY);
         DrawText("Touch the screen at multiple locations to get multiple balls", 10, 30, 20, DARKGRAY);
 
+        DrawFPS(0, 0);
+
 
         EndDrawing();
     }

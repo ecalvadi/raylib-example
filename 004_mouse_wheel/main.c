@@ -54,6 +54,8 @@ int main(void) {
             FormatText("Box position Y: %03i", boxPositionY),
             10, 40, 20, LIGHTGRAY);
 
+	DrawFPS(0, 0);
+
         EndDrawing();
     }
 

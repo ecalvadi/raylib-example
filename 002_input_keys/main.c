@@ -49,6 +49,8 @@ int main(void) {
         //Draw the circle, in the position vector2, the size and finally a color.
         DrawCircleV(ballPosition, 50, LIGHTGRAY);
 
+	DrawFPS(0, 0);
+
         EndDrawing();
     }
 

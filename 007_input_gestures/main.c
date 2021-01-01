@@ -108,6 +108,8 @@ int main(void) {
         //Show circleV while gesture is in action 
         if( currentGesture != GESTURE_NONE ) DrawCircleV(touchPosition, 30, MAROON);
 
+        DrawFPS(0, 0);
+
         EndDrawing();
     }
 

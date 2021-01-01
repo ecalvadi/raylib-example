@@ -147,6 +147,8 @@ int main(void) {
           DrawText("Current camera mode:", 20, 120, 10, BLACK);
           DrawText(cameraDescriptions[cameraOption], 40, 140, 10, DARKGRAY);
 
+	  DrawFPS(0, 0);
+
         EndDrawing();
     }
 

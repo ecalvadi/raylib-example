@@ -124,6 +124,8 @@ int main(void) {
           DrawText("- Q / E to rodate", 40, 80, 10, DARKGRAY);
           DrawText("- R to reset Zoom and Rotation", 40, 100, 10, DARKGRAY);
 
+	  DrawFPS(0, 0);
+
         EndDrawing();
     }
 

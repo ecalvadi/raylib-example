@@ -6,7 +6,7 @@
 
 #include <raylib.h>
 
-#define MAX_COLUMNS 20
+#define MAX_COLUMNS 100
 
 int main(void) {
     //Initialization of the screen resolution
@@ -35,7 +35,7 @@ int main(void) {
     for( int i = 0; i < MAX_COLUMNS; i++ )
     {
         heights[i] = (float)GetRandomValue(1, 12);
-        position[i] = (Vector3){ GetRandomValue(-15, 15), heights[i] / 2, GetRandomValue(-15, 15) };
+        position[i] = (Vector3){ GetRandomValue(-30, 30), heights[i] / 2, GetRandomValue(-30, 30) };
         colors[i] = (Color){ GetRandomValue(20, 255), GetRandomValue(10, 55), 30, 255 };
     }
 
@@ -50,6 +50,8 @@ int main(void) {
     {
         //TODO: Update variables of the game loop
         UpdateCamera(&camera);      //Update camera
+
+        if( IsKeyPressed(KEY_F ) ) ToggleFullscreen();
 
         //StartDrawing
         BeginDrawing();

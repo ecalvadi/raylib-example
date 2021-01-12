@@ -17,6 +17,7 @@ int main(void) {
 
     //Initialization of the main window, passing the screen width
     //and height constants, finally we added a title of the window.
+    //SetConfigFlags(FLAG_MSAA_4X_HINT);
     InitWindow(screenWidth, screenHeight, "ÑirEngine 0.1 ALPHA - 3D Camera First Person");
 
     //Define cthe camera to look into our 3d world

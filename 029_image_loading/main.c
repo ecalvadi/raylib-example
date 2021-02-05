@@ -5,8 +5,6 @@
 
 #include <raylib.h>
 
-#define NUM_TEXTURES 7  //Currently we have 7 generation Algorithms
-
 int main(void) {
     //Initialization of the screen resolution
     const int screenWidth = 1280;
@@ -47,6 +45,7 @@ int main(void) {
     }
 
     //Clean memory
+    UnloadTexture(texture);  //Clean GPU memory
 
     //Clear
     CloseWindow();

@@ -112,7 +112,7 @@ int main(void) {
 
             EndBlendMode();
 
-            DrawText("PRES SPACE to CHANGE BLENDING MODE", 380, 20, 20, BLACK);
+            DrawText("DEDICATED TO THE SUPREME GAYMASTER MARUCHAN!", 380, 20, 20, BLACK);
 
             if( blending == BLEND_ALPHA ) DrawText("ALPHA BLENDING", 490, screenHeight - 40, 20, BLACK);
             else DrawText("ADDITIVE BLENDING", 480, screenHeight - 40, 20, RAYWHITE);

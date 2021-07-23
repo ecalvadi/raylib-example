@@ -19,7 +19,7 @@ int main(void) {
 
     //Starting position and speed 
     int boxPositionY = screenHeight / 2 - 40;
-    int scrollSpeed = (fps == 60) ? 4 : 8;
+    float scrollSpeed = (fps == 60) ? 4.0f : 8.0f;
 
     //Set Frames per second
     SetTargetFPS(fps);
@@ -30,7 +30,7 @@ int main(void) {
         //TODO: Update variables of the game loop
         //box position by multiply the mouse wheel by scroll speed 
         //(the mouse wheel take a positive or negative value)
-        boxPositionY -= ( GetMouseWheelMove() * scrollSpeed );
+        boxPositionY -= (int)( GetMouseWheelMove() * scrollSpeed );
 
         //if(IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) ToggleFullscreen();
 

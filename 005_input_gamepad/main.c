@@ -18,6 +18,10 @@
   #define SHANWAN_NAME_ID "SHANWAN PS3 GamePad"
 #endif
 
+typedef enum {
+    GAMEPAD_PLAYER1,
+} GamepadPlayer;
+
 int main(void) {
     //Initialization of the screen resolution
     const int screenWidth = 1280;
@@ -85,30 +89,30 @@ int main(void) {
               //Draw axis: left joystick
               DrawCircle(499, 252, 39, BLACK);
               DrawCircle(499, 252, 34, LIGHTGRAY);
-              DrawCircle(499 + (GetGamepadAxisMovement(GAMEPAD_PLAYER1, GAMEPAD_AXIS_LEFT_X) * 20),
-                         252 + (GetGamepadAxisMovement(GAMEPAD_PLAYER1, GAMEPAD_AXIS_LEFT_Y) * 20), 25, BLACK);
+              DrawCircle((int)(499.0f + (GetGamepadAxisMovement(GAMEPAD_PLAYER1, GAMEPAD_AXIS_LEFT_X) * 20)),
+                         (int)(252.0f + (GetGamepadAxisMovement(GAMEPAD_PLAYER1, GAMEPAD_AXIS_LEFT_Y) * 20)), 25, BLACK);
               if( IsGamepadButtonDown(GAMEPAD_PLAYER1, GAMEPAD_BUTTON_LEFT_THUMB) )
               {
-                DrawCircle(499 + ( GetGamepadAxisMovement(GAMEPAD_PLAYER1, GAMEPAD_AXIS_LEFT_X) * 20),
-                           252 + ( GetGamepadAxisMovement(GAMEPAD_PLAYER1, GAMEPAD_AXIS_LEFT_Y) * 20 ), 25, RED);
+                DrawCircle((int)(499 + ( GetGamepadAxisMovement(GAMEPAD_PLAYER1, GAMEPAD_AXIS_LEFT_X) * 20)),
+                        (int)(252 + ( GetGamepadAxisMovement(GAMEPAD_PLAYER1, GAMEPAD_AXIS_LEFT_Y) * 20 )), 25, RED);
               }
  
               //Draw axis: right joystick
               DrawCircle(701, 337, 38, BLACK);
               DrawCircle(701, 337, 33, LIGHTGRAY);
-              DrawCircle(701 + (GetGamepadAxisMovement(GAMEPAD_PLAYER1, GAMEPAD_AXIS_RIGHT_X) * 20),
-                         337 + (GetGamepadAxisMovement(GAMEPAD_PLAYER1, GAMEPAD_AXIS_RIGHT_Y) * 20), 25, BLACK);
+              DrawCircle((int)(701 + (GetGamepadAxisMovement(GAMEPAD_PLAYER1, GAMEPAD_AXIS_RIGHT_X) * 20)),
+                      (int)(337 + (GetGamepadAxisMovement(GAMEPAD_PLAYER1, GAMEPAD_AXIS_RIGHT_Y) * 20)), 25, BLACK);
               if( IsGamepadButtonDown(GAMEPAD_PLAYER1, GAMEPAD_BUTTON_RIGHT_THUMB) )
               {
-                DrawCircle(701 + ( GetGamepadAxisMovement(GAMEPAD_PLAYER1, GAMEPAD_AXIS_RIGHT_X) * 20),
-                           337 + ( GetGamepadAxisMovement(GAMEPAD_PLAYER1, GAMEPAD_AXIS_RIGHT_Y) * 20 ), 25, RED);
+                DrawCircle((int)(701 + ( GetGamepadAxisMovement(GAMEPAD_PLAYER1, GAMEPAD_AXIS_RIGHT_X) * 20)),
+                        (int)(337 + ( GetGamepadAxisMovement(GAMEPAD_PLAYER1, GAMEPAD_AXIS_RIGHT_Y) * 20 )), 25, RED);
               }
 
               //Draw axis: left-right triggers 
               DrawRectangle(410, 130, 15, 70, GRAY);
               DrawRectangle(844, 130, 15, 70, GRAY);
-              DrawRectangle(410, 130, 15, (((1.0f + GetGamepadAxisMovement(GAMEPAD_PLAYER1, GAMEPAD_AXIS_LEFT_TRIGGER)) / 2.0f) * 70), RED);
-              DrawRectangle(844, 130, 15, (((1.0f + GetGamepadAxisMovement(GAMEPAD_PLAYER1, GAMEPAD_AXIS_RIGHT_TRIGGER)) / 2.0f) * 70), RED);
+              DrawRectangle(410, 130, 15, (int)(((1.0f + GetGamepadAxisMovement(GAMEPAD_PLAYER1, GAMEPAD_AXIS_LEFT_TRIGGER)) / 2.0f) * 70), RED);
+              DrawRectangle(844, 130, 15, (int)(((1.0f + GetGamepadAxisMovement(GAMEPAD_PLAYER1, GAMEPAD_AXIS_RIGHT_TRIGGER)) / 2.0f) * 70), RED);
 
             }
             else if (IsGamepadName(GAMEPAD_PLAYER1, PS3_NAME_ID) || IsGamepadName(GAMEPAD_PLAYER1, SHANWAN_NAME_ID) )
@@ -142,30 +146,30 @@ int main(void) {
                 //Draw axis: left joystick
                 DrawCircle(559, 355, 35, BLACK);
                 DrawCircle(559, 355, 31, LIGHTGRAY);
-                DrawCircle(559 + ( GetGamepadAxisMovement(GAMEPAD_PLAYER1, GAMEPAD_AXIS_LEFT_X) * 20),
-                           355 + ( GetGamepadAxisMovement(GAMEPAD_PLAYER1, GAMEPAD_AXIS_LEFT_Y) * 20 ), 25, BLACK);
+                DrawCircle((int)(559 + ( GetGamepadAxisMovement(GAMEPAD_PLAYER1, GAMEPAD_AXIS_LEFT_X) * 20)),
+                        (int)(355 + ( GetGamepadAxisMovement(GAMEPAD_PLAYER1, GAMEPAD_AXIS_LEFT_Y) * 20 )), 25, BLACK);
                 if( IsGamepadButtonDown(GAMEPAD_PLAYER1, GAMEPAD_BUTTON_LEFT_THUMB) )
                 {
-                    DrawCircle(559 + ( GetGamepadAxisMovement(GAMEPAD_PLAYER1, GAMEPAD_AXIS_LEFT_X) * 20),
-                          355 + ( GetGamepadAxisMovement(GAMEPAD_PLAYER1, GAMEPAD_AXIS_LEFT_Y) * 20 ), 25, RED);
+                    DrawCircle((int)(559 + ( GetGamepadAxisMovement(GAMEPAD_PLAYER1, GAMEPAD_AXIS_LEFT_X) * 20)),
+                            (int)(355 + ( GetGamepadAxisMovement(GAMEPAD_PLAYER1, GAMEPAD_AXIS_LEFT_Y) * 20 )), 25, RED);
                 }
  
                 //Draw axis: right joystick
                 DrawCircle(715, 355, 35, BLACK);
                 DrawCircle(715, 355, 31, LIGHTGRAY);
-                DrawCircle(715 + ( GetGamepadAxisMovement(GAMEPAD_PLAYER1, GAMEPAD_AXIS_RIGHT_X) * 20 ),
-                           355 + ( GetGamepadAxisMovement(GAMEPAD_PLAYER1, GAMEPAD_AXIS_RIGHT_Y) * 20), 25, BLACK);
+                DrawCircle((int)(715 + ( GetGamepadAxisMovement(GAMEPAD_PLAYER1, GAMEPAD_AXIS_RIGHT_X) * 20 )),
+                        (int)(355 + ( GetGamepadAxisMovement(GAMEPAD_PLAYER1, GAMEPAD_AXIS_RIGHT_Y) * 20)), 25, BLACK);
                 if( IsGamepadButtonDown(GAMEPAD_PLAYER1, GAMEPAD_BUTTON_RIGHT_THUMB) )
                 {
-                    DrawCircle(715 + ( GetGamepadAxisMovement(GAMEPAD_PLAYER1, GAMEPAD_AXIS_RIGHT_X) * 20 ),
-                              355 + ( GetGamepadAxisMovement(GAMEPAD_PLAYER1, GAMEPAD_AXIS_RIGHT_Y) * 20), 25, RED);
+                    DrawCircle((int)(715 + ( GetGamepadAxisMovement(GAMEPAD_PLAYER1, GAMEPAD_AXIS_RIGHT_X) * 20 )),
+                            (int)(355 + ( GetGamepadAxisMovement(GAMEPAD_PLAYER1, GAMEPAD_AXIS_RIGHT_Y) * 20)), 25, RED);
                 } 
 
                 //Draw axis: left-right triggers
                 DrawRectangle(409, 148, 15, 70, GRAY);
                 DrawRectangle(851, 148, 15, 70, GRAY);
-                DrawRectangle(409, 148, 15, (((1.0f - GetGamepadAxisMovement(GAMEPAD_PLAYER1, GAMEPAD_AXIS_LEFT_TRIGGER)) / 2.0f) * 70), RED);
-                DrawRectangle(851, 148, 15, (((1.0f - GetGamepadAxisMovement(GAMEPAD_PLAYER1, GAMEPAD_AXIS_RIGHT_TRIGGER)) / 2.0f) * 70), RED);
+                DrawRectangle(409, 148, 15, (int)(((1.0f - GetGamepadAxisMovement(GAMEPAD_PLAYER1, GAMEPAD_AXIS_LEFT_TRIGGER)) / 2.0f) * 70), RED);
+                DrawRectangle(851, 148, 15, (int)(((1.0f - GetGamepadAxisMovement(GAMEPAD_PLAYER1, GAMEPAD_AXIS_RIGHT_TRIGGER)) / 2.0f) * 70), RED);
 
             }
             else

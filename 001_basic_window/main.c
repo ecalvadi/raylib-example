@@ -32,7 +32,7 @@ int main(void) {
         ClearBackground(DARKGRAY);
 
         //Drawing a text, passing a text, then the position X and Y, finally a color
-        DrawText("Bienvenido a Ñir Engine 1.1 ALPHA", 340, 300, 30, RAYWHITE);
+        DrawText("Bienvenido a Ñir Engine 0.1 ALPHA", 340, 300, 30, RAYWHITE);
 
 	//DRAW CURRENT FPS
 	DrawFPS(0, 0);

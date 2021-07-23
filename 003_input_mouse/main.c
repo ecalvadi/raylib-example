@@ -18,7 +18,7 @@ int main(void) {
     InitWindow(screenWidth, screenHeight, "ÑirEngine 0.1 ALPHA - Mouse Input");
 
     //Initialization of the ball object in the center of the screen 
-    Vector2 ballPosition = { (float) screenWidth / 2, (float) screenHeight / 2 };
+    Vector2 ballPosition; //Initialization on the game loop
 
     //Seteamos una variable color
     Color ballColor = LIGHTGRAY;

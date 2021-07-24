@@ -26,7 +26,7 @@ int main(void) {
     camera.target = (Vector3){ 0.0f, 10.8f, 0.0f};           //Camera looking at point
     camera.up = (Vector3){ 0.0f, 1.0f, 0.0f };              //Camera up vector (rotation towards target)
     camera.fovy = 60.0f;                                                //Camera field-of-view Y
-    camera.type = CAMERA_PERSPECTIVE;                                   //camera mode type
+    camera.projection = CAMERA_PERSPECTIVE;                                   //camera mode type
 
     //Generates some random columns
     float heights[MAX_COLUMNS] = { 0 };
@@ -36,7 +36,7 @@ int main(void) {
     for( int i = 0; i < MAX_COLUMNS; i++ )
     {
         heights[i] = (float)GetRandomValue(1, 12);
-        position[i] = (Vector3){ GetRandomValue(-30, 30), heights[i] / 2, GetRandomValue(-30, 30) };
+        position[i] = (Vector3){ (float)GetRandomValue(-30, 30), heights[i] / 2, (float)GetRandomValue(-30, 30) };
         colors[i] = (Color){ GetRandomValue(20, 255), GetRandomValue(10, 55), 30, 255 };
     }
 

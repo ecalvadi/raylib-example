@@ -30,15 +30,15 @@ int main(void) {
         if( IsKeyPressed(KEY_S) ) scissorMode = !scissorMode;
 
         //Centre the scissor area aroind the mouse position
-        scissorArea.x = GetMouseX() - scissorArea.width / 2;
-        scissorArea.y = GetMouseY() - scissorArea.height / 2;
+        scissorArea.x = (float)GetMouseX() - scissorArea.width / 2;
+        scissorArea.y = (float)GetMouseY() - scissorArea.height / 2;
 
         //StartDrawing
         BeginDrawing();
 
           ClearBackground(RAYWHITE);
 
-          if( scissorMode ) BeginScissorMode( scissorArea.x, scissorArea.y, scissorArea.width, scissorArea.height );
+          if( scissorMode ) BeginScissorMode( (int)scissorArea.x, (int)scissorArea.y, (int)scissorArea.width, (int)scissorArea.height );
 
           //Draw full screen rectangle and some text
           //NOTE: Only part defined by scissor area will be rendered

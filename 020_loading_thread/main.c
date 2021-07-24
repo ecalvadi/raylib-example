@@ -125,7 +125,7 @@ static void *LoadDataThread(void *arg)
   while( timeCounter < 5000 )
   {
     clock_t currentTime = clock() - prevTime;
-    timeCounter = currentTime * 1000 / CLOCKS_PER_SEC;
+    timeCounter = (int)((float)currentTime * 1000 / CLOCKS_PER_SEC);
 
     //We accumulate time over a global variable to be used in
     //main thread as a progress bar

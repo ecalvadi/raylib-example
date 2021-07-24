@@ -21,15 +21,15 @@ int main(void) {
     InitWindow(screenWidth, screenHeight, "ÑirEngine 0.1 ALPHA - Input Gestures");
 
     //Set the touchPosition and area of detection
-    Vector2 touchPosition = {0, 0};
-    Rectangle touchArea = { 220, 10, screenWidth - 230, screenHeight - 20 };
+    Vector2 touchPosition;// = {0, 0};
+    Rectangle touchArea = { 220, 10, (float)(screenWidth - 230), (float)(screenHeight - 20) };
 
     //Init gestures 
     int gesturesCount = 0;
     char gestureStrings[MAX_GESTURE_STRINGS][32];
 
     int currentGesture = GESTURE_NONE;
-    int lastGesture = GESTURE_NONE;
+    int lastGesture;// = GESTURE_NONE;
 
     //SetGesturesEnabled(0b0000000000001001); //Enable only some gestures to be detected 
 

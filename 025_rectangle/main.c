@@ -59,7 +59,7 @@ int main(void) {
 
           DrawTexture(scarfy, 290, 40, WHITE);
           DrawRectangleLines(290, 40, scarfy.width, scarfy.height, LIME);
-          DrawRectangleLines(290 + frameRec.x, 40 + frameRec.y, frameRec.width, frameRec.height, RED);
+          DrawRectangleLines(290 + (int)frameRec.x, 40 + (int)frameRec.y, (int)frameRec.width, (int)frameRec.height, RED);
 
           DrawText("FRAME SPEED: ", 365, 210, 10, DARKGRAY);
           DrawText(TextFormat("%02i FPS", framesSpeed), 875, 210, 10, DARKGRAY);

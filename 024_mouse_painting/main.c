@@ -30,7 +30,7 @@ int main(void) {
 
     for( int i = 0; i < MAX_COLORS_COUNT; i++)
     {
-      colorsRecs[i].x = 10 + 30*i + 2*i;
+      colorsRecs[i].x = 10.0f + 30.0f*(float)i + 2.0f*(float)i;
       colorsRecs[i].y = 10;
       colorsRecs[i].width = 30;
       colorsRecs[i].height = 30;
@@ -78,7 +78,7 @@ int main(void) {
             colorMouseHover = i;
             break;
           }
-          else colorMouseHover -1;
+          else colorMouseHover = -1;
         }
 
         if( (colorMouseHover >= 0) && IsMouseButtonPressed(MOUSE_LEFT_BUTTON) )
@@ -88,7 +88,7 @@ int main(void) {
         }
 
         //change brush size
-        brushSize += GetMouseWheelMove() * 5;
+        brushSize += (int)GetMouseWheelMove() * 5;
         if( brushSize < 2 ) brushSize = 3;
         if( brushSize > 50 ) brushSize = 50;
 
@@ -106,7 +106,7 @@ int main(void) {
           //NOTE: To avoid discontinuous circles, we could store
           //previous-next mouse points and just draw a line using brushSize
           BeginTextureMode(target);
-          if( mousePos.y > 50 ) DrawCircle(mousePos.x, mousePos.y, brushSize, colors[colorSelected]);
+          if( mousePos.y > 50 ) DrawCircle((int)mousePos.x, (int)mousePos.y, (float)brushSize, colors[colorSelected]);
           EndTextureMode();
         }
 
@@ -116,7 +116,7 @@ int main(void) {
 
           //Erase circle from render texture 
           BeginTextureMode(target);
-          if( mousePos.y > 50 ) DrawCircle(mousePos.x, mousePos.y, brushSize, colors[0]);
+          if( mousePos.y > 50 ) DrawCircle((int)mousePos.x, (int)mousePos.y, (float)brushSize, colors[0]);
           EndTextureMode();
         }
         else colorSelected = colorSelectedPrev;
@@ -153,13 +153,13 @@ int main(void) {
           ClearBackground(RAYWHITE);
 
           //NOTE: Render texture must be y-flipped due to default OpenGL coordinates (left-bottom)
-          DrawTextureRec(target.texture, (Rectangle){ 0, 0, target.texture.width, -target.texture.height }, (Vector2){ 0, 0 }, WHITE);
+          DrawTextureRec(target.texture, (Rectangle){ 0, 0, (float)target.texture.width, (float)-target.texture.height }, (Vector2){ 0, 0 }, WHITE);
 
           //Draw drawing circle for reference
           if( mousePos.y > 50 )
           {
-            if( IsMouseButtonDown(MOUSE_RIGHT_BUTTON) ) DrawCircleLines(mousePos.x, mousePos.y, brushSize, GRAY);
-            else DrawCircle( GetMouseX(), GetMouseY(), brushSize, colors[colorSelected]);
+            if( IsMouseButtonDown(MOUSE_RIGHT_BUTTON) ) DrawCircleLines((int)mousePos.x, (int)mousePos.y, (float)brushSize, GRAY);
+            else DrawCircle( GetMouseX(), GetMouseY(), (float)brushSize, colors[colorSelected]);
           }
 
           //Draw top panel

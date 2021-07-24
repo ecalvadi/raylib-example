@@ -6,6 +6,10 @@
 
 #include <raylib.h>
 
+typedef enum {
+    GAMEPAD_PLAYER1,
+} GamePad;
+
 #define MAX_BUILDINGS 100
 
 int main(void) {
@@ -32,14 +36,14 @@ int main(void) {
     for( int i = 0; i < MAX_BUILDINGS; i++ )
     {
       //Set width and height randomly
-      buildings[i].width = GetRandomValue(50, 200);
-      buildings[i].height = GetRandomValue(100, 800);
+      buildings[i].width = (float)GetRandomValue(50, 200);
+      buildings[i].height = (float)GetRandomValue(100, 800);
 
       //Setting building position
-      buildings[i].y = screenHeight - 130 - buildings[i].height;
-      buildings[i].x = -6000 + spacing;
+      buildings[i].y = (float)screenHeight - 130 - buildings[i].height;
+      buildings[i].x = (float)(-6000 + spacing);
 
-      spacing += buildings[i].width;
+      spacing += (int)buildings[i].width;
 
       //Set building color randomly
       buildColors[i] = (Color){ GetRandomValue(200, 240), GetRandomValue(200, 240), GetRandomValue(200, 250), 255 };
@@ -48,7 +52,7 @@ int main(void) {
     //Set the camera settings
     Camera2D camera = { 0 };
     camera.target = (Vector2){ player.x + 20, player.y + 20 }; //Camera around the target
-    camera.offset = (Vector2){ screenWidth/2, screenHeight - 100 }; // camera offset (movement)
+    camera.offset = (Vector2){ (float)screenWidth/2, (float)screenHeight - 100 }; // camera offset (movement)
     camera.rotation = 0.0f;
     camera.zoom = 1.0f;
 
@@ -60,15 +64,15 @@ int main(void) {
     {
         //TODO: Update variables of the game loop
         //player movement (keyboard and joystick)
-        if( IsKeyDown(KEY_D) || IsGamepadButtonDown(GAMEPAD_PLAYER1, GAMEPAD_BUTTON_LEFT_FACE_RIGHT) ) player.x += speed;
-        else if ( IsKeyDown(KEY_A) || IsGamepadButtonDown(GAMEPAD_PLAYER1, GAMEPAD_BUTTON_LEFT_FACE_LEFT) ) player.x -= speed;
+        if( IsKeyDown(KEY_D) || IsGamepadButtonDown(GAMEPAD_PLAYER1, GAMEPAD_BUTTON_LEFT_FACE_RIGHT) ) player.x += (float)speed;
+        else if ( IsKeyDown(KEY_A) || IsGamepadButtonDown(GAMEPAD_PLAYER1, GAMEPAD_BUTTON_LEFT_FACE_LEFT) ) player.x -= (float)speed;
 
         // Camera target follows player 
         camera.target = (Vector2){ player.x + 20, player.y + 20 };
 
         //Camera rotation control 
-        if( IsKeyDown(KEY_Q) || IsGamepadButtonDown(GAMEPAD_PLAYER1, GAMEPAD_BUTTON_LEFT_TRIGGER_1) ) camera.rotation -= speed;
-        else if( IsKeyDown(KEY_E) || IsGamepadButtonDown(GAMEPAD_PLAYER1, GAMEPAD_BUTTON_RIGHT_TRIGGER_1) ) camera.rotation += speed;
+        if( IsKeyDown(KEY_Q) || IsGamepadButtonDown(GAMEPAD_PLAYER1, GAMEPAD_BUTTON_LEFT_TRIGGER_1) ) camera.rotation -= (float)speed;
+        else if( IsKeyDown(KEY_E) || IsGamepadButtonDown(GAMEPAD_PLAYER1, GAMEPAD_BUTTON_RIGHT_TRIGGER_1) ) camera.rotation += (float)speed;
 
         //Limit the camera rotation to 80 degrees (-40 to 40);
         if( camera.rotation > 40 ) camera.rotation = 40;
@@ -102,8 +106,8 @@ int main(void) {
             DrawRectangleRec(player, RED);
 
             //Draw centered lines
-            DrawLine(camera.target.x, -screenHeight * 10, camera.target.x, screenHeight * 10, GREEN);
-            DrawLine(-screenWidth * 10, camera.target.y, screenWidth * 10, camera.target.y, GREEN);
+            DrawLine((int)camera.target.x, -screenHeight * 10, (int)camera.target.x, screenHeight * 10, GREEN);
+            DrawLine(-screenWidth * 10, (int)camera.target.y, screenWidth * 10, (int)camera.target.y, GREEN);
 
           EndMode2D();
 

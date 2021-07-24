@@ -36,7 +36,7 @@ int main(void) {
     //and height constants, finally we added a title of the window.
     InitWindow(screenWidth, screenHeight, "ÑirEngine 0.1 ALPHA - Window Flags");
 
-    Vector2 ballPosition = { screenWidth / 2, screenHeight / 2};
+    Vector2 ballPosition = { (float)screenWidth / 2, (float)screenHeight / 2};
     Vector2 ballSpeed = { 5.0f, 4.0f };
     int ballRadius = 20;
 
@@ -117,8 +117,8 @@ int main(void) {
         //Bouncing ball logic
         ballPosition.x += ballSpeed.x;
         ballPosition.y += ballSpeed.y;
-        if( (ballPosition.x >= (screenWidth - ballRadius)) || (ballPosition.x <= ballRadius) ) ballSpeed.x *= -1.0f;
-        if( (ballPosition.y >= (screenHeight - ballRadius)) || (ballPosition.y <= ballRadius) ) ballSpeed.y *= -1.0f;
+        if( (ballPosition.x >= (float)(screenWidth - ballRadius)) || (ballPosition.x <= (float)ballRadius) ) ballSpeed.x *= -1.0f;
+        if( (ballPosition.y >= (float)(screenHeight - ballRadius)) || (ballPosition.y <= (float)ballRadius) ) ballSpeed.y *= -1.0f;
 
         //StartDrawing
         BeginDrawing();
@@ -126,8 +126,8 @@ int main(void) {
           if( IsWindowState(FLAG_WINDOW_TRANSPARENT) ) ClearBackground(BLANK);
           else ClearBackground(RAYWHITE);
 
-          DrawCircleV(ballPosition, ballRadius, MAROON);
-          DrawRectangleLinesEx( (Rectangle){ 0, 0, screenWidth, screenHeight }, 4, RAYWHITE );
+          DrawCircleV(ballPosition, (float)ballRadius, MAROON);
+          DrawRectangleLinesEx( (Rectangle){ 0, 0, (float)screenWidth, (float)screenHeight }, 4, RAYWHITE );
 
           DrawCircleV(GetMousePosition(), 10, DARKBLUE);
 

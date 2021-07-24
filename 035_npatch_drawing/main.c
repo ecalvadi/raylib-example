@@ -19,7 +19,7 @@ int main(void) {
     // NOTE: Textures MUST be loaded after Window Initialization (OpenGL context is required)
     Texture2D nPatchTexture = LoadTexture("resources/ninepatch_button.png");
 
-    Vector2 mousePosition = { 0 };
+    Vector2 mousePosition;// = { 0 };
     Vector2 origin = { 0.0f, 0.0f };
 
     // Position and size of the n-patches
@@ -29,14 +29,14 @@ int main(void) {
     Rectangle dstRectV = { 92.0f, 160.0f, 32.0f, 32.0f};
 
     // A 9-patch (NPT_9PATCH changes its sizes in both axis
-    NPatchInfo  ninePatchInfo1 = { (Rectangle){ 0.0f, 0.0f, 64.0f, 64.0f }, 12,40, 12, 12, NPT_9PATCH};
-    NPatchInfo  ninePatchInfo2 = { (Rectangle){ 0.0f, 128.0f, 64.0f, 64.0f }, 16,16, 16, 16, NPT_9PATCH};
+    NPatchInfo  ninePatchInfo1 = { (Rectangle){ 0.0f, 0.0f, 64.0f, 64.0f }, 12,40, 12, 12, NPATCH_NINE_PATCH};
+    NPatchInfo  ninePatchInfo2 = { (Rectangle){ 0.0f, 128.0f, 64.0f, 64.0f }, 16,16, 16, 16, NPATCH_NINE_PATCH};
 
     // A horizontal 3-patch (NPT_3PATCH_HORIZONTAL) changes its sizes along the x axis only
-    NPatchInfo h3PatchInfo = { (Rectangle){ 0.0f, 64.0f, 64.0f, 64.0f}, 8, 8, 8, 8, NPT_3PATCH_HORIZONTAL};
+    NPatchInfo h3PatchInfo = { (Rectangle){ 0.0f, 64.0f, 64.0f, 64.0f}, 8, 8, 8, 8, NPATCH_THREE_PATCH_HORIZONTAL};
 
     // A vertical 3-patch (NPT_3PATCH_VERTICAL) changes its sizes along the y axis only
-    NPatchInfo v3PatchInfo = { (Rectangle){ 0.0f, 192.0f, 64.0f, 64.0f}, 6, 6, 6, 6, NPT_3PATCH_VERTICAL};
+    NPatchInfo v3PatchInfo = { (Rectangle){ 0.0f, 192.0f, 64.0f, 64.0f}, 6, 6, 6, 6, NPATCH_THREE_PATCH_VERTICAL};
 
 
     //Set Frames per second

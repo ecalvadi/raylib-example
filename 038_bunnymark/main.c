@@ -2,8 +2,11 @@
  * This example show a benchmark of 2D capabilities instancing a lot of bunnies on screen
  * 
  * */
-
+#ifdef OSX
+#include "../lib/raylib.h"
+#else
 #include <raylib.h>
+#endif
 
 #include <stdlib.h>                 // Required for: malloc(), free()
 

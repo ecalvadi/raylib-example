@@ -1,9 +1,16 @@
+*/.DS_Store
 0*/main.o 
 0*/main 
 0*/*.gif 
 0*/*.png
 0*/.idea
+0*/main_*
+0*/main.universal
+O*/main.app/*
 g*/main.o
+g*/main.universal
+g*/main.app/*
+g*/main_*
 g*/main
 g*/*.gif 
 g*/*.png

@@ -9,5 +9,6 @@ lipo -create main_x86_64 main_aarm64 -output main.universal
 cp -rfv ../main.app ./
 
 cp -fv main.universal main.app/Contents/MacOS/
-cp -rfv resources/ main.app/Contents/MacOS/
+mkdir main.app/Contents/MacOS/resources
+cp -rfv resources/* main.app/Contents/MacOS/resources/
 

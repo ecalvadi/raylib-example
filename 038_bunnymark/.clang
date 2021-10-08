@@ -3,6 +3,7 @@
 -g
 -D_DEFAULT_SOURCE
 -I/usr/local/include
+-I/opt/homebrew/include/
 -isystem.
 -isystem/home/phoenix/Dropbox/EcPx/Proyectos/src
 -isystem/home/phoenix/Dropbox/EcPx/Proyectos/release/include

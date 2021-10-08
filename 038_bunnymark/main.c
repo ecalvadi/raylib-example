@@ -24,8 +24,8 @@ typedef struct Bunny {
 
 int main(void) {
     //Initialization of the screen resolution
-    const int screenWidth = 1280;
-    const int screenHeight = 720;
+    const int screenWidth = 960;
+    const int screenHeight = 544;
     const int fps = 60; // Set the FPS Here for later calc of velocity
 
     //Initialization of the main window, passing the screen width

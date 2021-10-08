@@ -5,7 +5,11 @@
  **/
 
 //Importing main library "raylib"
+#ifdef OSX
+#include "../lib/raylib.h"
+#else
 #include <raylib.h>
+#endif
 
 int main(void) {
     //Initialization of screen resolution

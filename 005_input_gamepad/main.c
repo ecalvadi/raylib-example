@@ -5,7 +5,11 @@
  *
  * */
 
+#ifdef OSX
+#include "../lib/raylib.h"
+#else
 #include <raylib.h>
+#endif
 
 //Gamepad name ID depends on drivers and OS
 #if defined(PLATFORM_RPI)

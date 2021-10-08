@@ -5,7 +5,11 @@
  *
  * */
 
+#ifdef OSX
+#include "../lib/raylib.h"
+#else
 #include <raylib.h>
+#endif
 
 int main(void) {
     //Initialization of the screen resolution

@@ -4,8 +4,13 @@
  *
  * */
 
+#ifdef OSX
+#include "../lib/raylib.h"
+#include "../lib/raymath.h"
+#else
 #include <raylib.h>
 #include <raymath.h>
+#endif
 
 //Gravity
 #define G 400

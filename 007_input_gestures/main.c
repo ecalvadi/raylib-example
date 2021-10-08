@@ -5,7 +5,11 @@
  *
  * */
 
+#ifdef OSX
+#include "../lib/raylib.h"
+#else
 #include <raylib.h>
+#endif
 #include <string.h>
 
 #define MAX_GESTURE_STRINGS 30

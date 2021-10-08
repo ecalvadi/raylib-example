@@ -4,7 +4,11 @@
  *
  * */
 
+#ifdef OSX
+#include "../lib/raylib.h"
+#else
 #include <raylib.h>
+#endif
 
 typedef enum {
     GAMEPAD_PLAYER1,

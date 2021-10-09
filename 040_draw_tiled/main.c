@@ -3,7 +3,11 @@
  * 
  * */
 
+#ifdef OSX
+#include "../lib/raylib.h"
+#else
 #include <raylib.h>
+#endif
 
 #define SIZEOF(A) (sizeof(A)/sizeof(A[0]))
 #define OPT_WIDTH       220             // Max width for the options container

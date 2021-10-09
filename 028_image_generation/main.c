@@ -3,7 +3,11 @@
  *
  * */
 
+#ifdef OSX
+#include "../lib/raylib.h"
+#else
 #include <raylib.h>
+#endif
 
 #define NUM_TEXTURES 7  //Currently we have 7 generation Algorithms
 

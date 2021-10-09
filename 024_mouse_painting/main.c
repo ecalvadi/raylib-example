@@ -3,7 +3,11 @@
  *
  * */
 
+#ifdef OSX
+#include "../lib/raylib.h"
+#else
 #include <raylib.h>
+#endif
 
 #define MAX_COLORS_COUNT   23    //Number of colors available
 

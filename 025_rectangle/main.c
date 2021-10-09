@@ -3,7 +3,11 @@
  *
  * */
 
+#ifdef OSX
+#include "../lib/raylib.h"
+#else
 #include <raylib.h>
+#endif
 
 #define MAX_FRAME_SPEED     15
 #define MIN_FRAME_SPEED      1

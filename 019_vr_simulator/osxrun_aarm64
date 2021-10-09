@@ -1,0 +1,4 @@
+#!/bin/zsh
+clang -framework CoreVideo -framework IOKit -framework Cocoa -framework GLUT -framework OpenGL ../libraylib_aarm64.a main.c -o main_aarm64 -DOSX -DPLATFORM_DESKTOP
+./main_aarm64
+

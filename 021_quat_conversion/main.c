@@ -4,8 +4,13 @@
  *
  * */
 
-#include <raylib.h>
-#include <raymath.h>
+#ifdef OSX
+  #include "../lib/raylib.h"
+  #include "../lib/raymath.h"
+#else
+  #include <raylib.h>
+  #include <raymath.h>
+#endif
 
 int main(void) {
     //Initialization of the screen resolution

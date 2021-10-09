@@ -1,0 +1,14 @@
+#!/bin/zsh
+rm main_* main.universal
+
+clang -framework CoreVideo -framework IOKit -framework Cocoa -framework GLUT -framework OpenGL ../libraylib_aarm64.a main.c -o main_aarm64 -O3 -flto -s -DOSX -DPLATFORM_DESKTOP
+arch -x86_64 clang -framework CoreVideo -framework IOKit -framework Cocoa -framework GLUT -framework OpenGL ../libraylib_x86_64.a main.c -o main_x86_64 -O3 -flto -s -DOSX _DPLATFORM_DESKTOP
+
+lipo -create main_x86_64 main_aarm64 -output main.universal
+
+cp -rfv ../main.app ./
+
+cp -fv main.universal main.app/Contents/MacOS/
+mkdir main.app/Contents/MacOS/resources
+cp -rfv resources/* main.app/Contents/MacOS/resources/
+

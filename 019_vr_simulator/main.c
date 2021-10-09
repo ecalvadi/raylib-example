@@ -4,7 +4,11 @@
  *
  * */
 
+#ifdef OSX
+#include "../lib/raylib.h"
+#else
 #include <raylib.h>
+#endif
 
 #if defined(PLATFORM_DESKTOP)
   #define GLSL_VERSION    330

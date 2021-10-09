@@ -4,7 +4,11 @@
  *
  * */
 
+#ifdef OSX
+#include "../lib/raylib.h"
+#else
 #include <raylib.h>
+#endif
 
 #include <pthread.h>      //POSIX style threads management
 

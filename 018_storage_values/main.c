@@ -4,7 +4,11 @@
  *
  * */
 
+#ifdef OSX
+#include "../lib/raylib.h"
+#else
 #include <raylib.h>
+#endif
 
 //NOTE: Storage positions must start with 0, directly related to file memory layout
 typedef enum {
